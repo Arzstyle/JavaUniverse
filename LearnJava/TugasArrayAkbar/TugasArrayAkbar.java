@@ -10,10 +10,10 @@ public class TugasArrayAkbar {
       
         String findGuest = "X";
 
-        for (int i = 0; i <= hotelAmaris.length; i++){
-            for (int j= 0; j <= hotelAmaris[i].length; j++){
-                if (hotelAmaris[i][i].equals(findGuest)) {
-                    System.out.println("Tamu berada di lantai" + (4-i) + " Kamar " + (1 + j) ;
+        for (int f = 0; f <= hotelAmaris.length; f++){
+            for (int r = 0; r <= hotelAmaris[f].length; r++){
+                if (hotelAmaris[r][f].equals(findGuest)) {
+                    System.out.println("Tamu berada di lantai" + (4-f) + " Kamar " + (1 + r) ;
                 }
             }
         } 
