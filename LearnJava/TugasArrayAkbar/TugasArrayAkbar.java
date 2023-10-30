@@ -9,7 +9,6 @@ public class TugasArrayAkbar {
         };
       
         String findGuest = "X";
-        int emptyRoom = 0;
 
         for (int i = 0; i <= hotelAmaris.length; i++){
             for (int j= 0; j <= hotelAmaris[i].length; j++){
@@ -18,10 +17,6 @@ public class TugasArrayAkbar {
                 }
             }
         } 
-        if (emptyRoom == 0){
-            System.out.println("Semua kamar sudah diisi");
-        } else {
-            System.out.println("Jumlah kamar kosong :" + emptyRoom + " Kamar ");
-        }
+        int emptyRoom = 0;
     }
 }
