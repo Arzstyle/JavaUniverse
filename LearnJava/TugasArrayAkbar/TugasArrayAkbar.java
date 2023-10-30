@@ -7,16 +7,28 @@ public class TugasArrayAkbar {
             {"*" , "*" , "*" , "*" , "*"},
             {"*" , "*" , "*" , "*" , "X"},
         };
-      
+        
         String findGuest = "X";
 
-        for (int f = 0; f <= hotelAmaris.length; f++){
-            for (int r = 0; r <= hotelAmaris[f].length; r++){
-                if (hotelAmaris[r][f].equals(findGuest)) {
-                    System.out.println("Tamu berada di lantai" + (4-f) + " Kamar " + (1 + r) ;
+        // f = floor
+        // r = room
+        for (int f = 0; f < hotelAmaris.length; f++){
+            for (int r = 0; r < hotelAmaris[f].length; r++){
+                if (hotelAmaris[f][r].equals(findGuest)) {
+                    System.out.println("Tamu berada di lantai" + (4 - f) + " Kamar " + (r + 1)) ;
                 }
             }
         } 
+        
+        //No 2
         int emptyRoom = 0;
+        for (int f = 0; f < hotelAmaris.length; f++){
+            for (int r = 0; r < hotelAmaris[f].length; r++){
+                if (hotelAmaris[f][r] == "*") {
+                    emptyRoom++;
+                }        
+            }
+        }
+        System.out.print("Jumlah Kamar yang tersedia adalah " + emptyRoom + " Kamar ");
     }
 }
