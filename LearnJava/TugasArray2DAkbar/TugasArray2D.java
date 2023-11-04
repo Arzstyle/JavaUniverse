@@ -27,23 +27,22 @@ public class TugasArray2D {
         
         input.close();
 
-        int posisiBaris = 5;
+        int posisiPlayer = 5;
         int posisiKolom = 12;
 
-        for (int i = 0; i < jalurMendaki.length; i++) {
-                char langkah  = jalurMendaki[i].charAt(i);
+        for (int i = 0; i < jalur.length(); i++) {
+                char langkah  = jalur.charAt(i);
                 energy--;
-        if (langkah == 'L'){
-            posisiBaris = posisiBaris - 1; 
-        } else if (langkah == 'R') {
-            posisiBaris = posisiBaris + 1; 
-        } else if (langkah == 'U') {
-            posisiKolom = posisiKolom - 1; 
-        } else if (langkah == 'D') {
-            posisiKolom = posisiKolom + 1;
-        } else if (langkah == 'R'){
-            energi += 10;
-        } String newPos = jalurMendaki[posisiBaris][posisiKolom];
+        if (langkah == 'L' && posisiKolom > 0 ){
+                posisiKolom--;
+            } else if (langkah == 'R' && posisiKolom < jalurMendaki[0].length -1 ){
+                posisiKolom++; 
+            } else if (langkah == 'U' && posisiPlayer >  0) {
+                posisiPlayer--;
+            } else if (langkah == 'D' && posisiPlayer < jalurMendaki.length -1 ){
+                posisiPlayer++;
+            } else if (langkah == 'R'){
+            String newPos = jalurMendaki[posisiPlayer][posisiKolom];
             if (newPos.equals("P2")  ||
                 newPos.equals("P3")  ||
                 newPos.equals("P4")  ||
@@ -53,11 +52,19 @@ public class TugasArray2D {
                 energy += 10;
             }else {
             System.out.println("Mohon maaf, istirahat hanya diperbolehkan di Pos yang tersedia");
+            return;
             }
         }  
         if (energy <= 0) {
             System.out.println("Jalur anda benar, tapi tenaga anda tidak akan kuat, coba jalur lain atau sempatkan istirahat terlebih dahulu");
             return;
-        }
+            } else if (jalurMendaki[posisiPlayer][posisiKolom].equals("X")) {
+            System.out.println("Jalur anda salah, anda masuk ke jurang/blank 45");
+            return;
+            } else if (jalurMendaki[posisiPlayer][posisiKolom].equals("P")) {
+            System.out.println("Selamat Pendakian anda berhasil mencapai Puncak Mahameru, sisa tenaga anda " + energy);
+            return;
+            }
+        }  
     }
 }
