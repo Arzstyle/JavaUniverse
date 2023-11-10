@@ -56,7 +56,6 @@ public class TugasBusStation {
                 (departureCity.equals("Banjar") && destinationCity.equals("Sukabumi"))) {
                 totalRate *= 0.5;
             }
-            
             if (isTniPolri) {
                 totalRate *= 0.1; 
             }
