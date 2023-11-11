@@ -10,7 +10,7 @@ public class TugasArray2D {
             * 4. LLLLLUUULLDDLDUULLLUUU  
         */
         
-        String jalurMendaki[][] = {
+        String[][] jalurMendaki = {
             {"P", "X", "X", "X", "X", "X", "X", "X", "X", "", "", ""},
             {"", "X", "", "", "", "X", "X", "P3", "X", "", "X", ""},
             {"", "X", "X", "X", "", "P4", "", "", "", "", "X", ""},
@@ -28,15 +28,15 @@ public class TugasArray2D {
             System.out.print("Masukan Jalur : ");
             String jalur = input.nextLine();
 
-            int posisiBaris = 5;
-            int posisiKolom = 11;
+            int barisPlayer = 5;
+            int kolomPlayer = 11;
             boolean restInTheWrongPost = false;
 
             for (int i = 0; i < jalur.length(); i++) {
                 char langkah  = jalur.charAt(i);
 
                 if (langkah == 'R'){
-                    String newPos = jalurMendaki[posisiBaris][posisiKolom];
+                    String newPos = jalurMendaki[barisPlayer][kolomPlayer];
                     if (newPos.equals("P2")  ||
                         newPos.equals("P4")  ||
                         newPos.equals("RK")  ||
@@ -45,38 +45,38 @@ public class TugasArray2D {
                         newPos.equals("TC")) {
                         energy += 10;
                     } else {
-                        if (posisiKolom < jalurMendaki[0].length - 1 && !jalurMendaki[posisiBaris][posisiKolom + 1].equals("X")) {
-                            posisiKolom++; 
+                        if (kolomPlayer < jalurMendaki[0].length - 1 && !jalurMendaki[barisPlayer][kolomPlayer + 1].equals("X")) {
+                            kolomPlayer++; 
                             energy--; 
                         } else {
                             restInTheWrongPost = true;
                             break; 
                         }
                     } 
-                } else if (langkah == 'L' && posisiKolom > 0) {
-                    posisiKolom--;
+                } else if (langkah == 'L' && kolomPlayer > 0) {
+                    kolomPlayer--;
                     energy--; 
-                } else if (langkah == 'R' && posisiKolom < jalurMendaki[0].length - 1) {
-                    posisiKolom++;
+                } else if (langkah == 'R' && kolomPlayer < jalurMendaki[0].length - 1) {
+                    kolomPlayer++;
                     energy--; 
-                } else if (langkah == 'U' && posisiBaris > 0) {
-                    posisiBaris--;
+                } else if (langkah == 'U' && barisPlayer > 0) {
+                    barisPlayer--;
                     energy--; 
-                } else if (langkah == 'D' && posisiBaris <  jalurMendaki.length - 1) {
-                    posisiBaris++;
+                } else if (langkah == 'D' && barisPlayer <  jalurMendaki.length - 1) {
+                    barisPlayer++;
                     energy--; 
                 } else {
-                    System.out.println("Tolong masukan input rute yang benar, seperti L, R, U, D, K.");
+                    System.out.println("Tolong masukan input rute yang benar, seperti L, R, U, D, R.");
                     return;
                 }
 
                 if (energy <= 0) {
                     System.out.println("Jalur anda benar, tapi tenaga anda tidak akan kuat, coba jalur lain atau sempatkan istirahat terlebih dahulu.");
                     return;
-                } else if ( jalurMendaki[posisiBaris][posisiKolom].equals("X")) {
+                } else if ( jalurMendaki[barisPlayer][kolomPlayer].equals("X")) {
                     System.out.println("Jalur anda salah, anda masuk ke jurang/blank 45.");
                     return;
-                } else if ( jalurMendaki[posisiBaris][posisiKolom].equals("P")) {
+                } else if ( jalurMendaki[barisPlayer][kolomPlayer].equals("P")) {
                     System.out.println("Selamat Pendakian anda berhasil mencapai Puncak Mahameru, sisa tenaga anda " + energy + ".");
                     return;
                 }
